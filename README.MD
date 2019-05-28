@@ -163,7 +163,8 @@ Users with more modern browsers and devices should be able to enjoy the feature 
 
 ### Why was @supports used instead of just writing Flexbox code?
 The at-rule was used to avoid IE11 and older versions that do support flexbox, but with a [plethora of bugs](https://github.com/philipwalton/flexbugs).
-[These old browsers](https://caniuse.com/#feat=css-featurequeries) just won't parse the CSS written inside of @supports, which contains the Flexbox rules, and will use the `inline-block` based grid.
+
+[These old browsers](https://caniuse.com/#feat=css-featurequeries) just won't parse the CSS written inside of @supports, and will use the `inline-block` based grid instead.
 
 ### IE 11 doesn't look the same as [insert modern browser here], how come?
 You will find a situation like this, like when using `grid--auto`. This is because these IE is not using Flexbox, while the modern browser is - *they're not supposed to act or look the same!*
