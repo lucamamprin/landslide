@@ -1,54 +1,52 @@
+// LOGIC aka THE MAGIC
 
- /**
-  * LOGIC aka THE MAGIC
-  */
-  @function escape-numerator($numerator, $namespace: '') {
-    @if ($namespace == '') {
-      $numerator-as-string: inspect($numerator);
-      $escaped-numerator: '';
+@function escape-numerator($numerator, $namespace: '') {
+  @if ($namespace == '') {
+    $numerator-as-string: inspect($numerator);
+    $escaped-numerator: '';
 
-      // Loop through all digits in the numerator and escape individually
-      @for $i from 1 through str-length($numerator-as-string) {
-        $digit: str-slice($numerator-as-string, $i, $i);
-        $escaped-numerator: $ls-width-class-namespace+$escaped-numerator+''+$digit;
-      }
-
-      @return $escaped-numerator;
-    } @else {
-      @return $numerator;
-    }
-  }
-
-  @function ls-create-width-class-name($style, $numerator, $denominator, $breakpoint-alias) {
-
-    $class-name: null;
-
-    @if $style == 'fragment' {
-      // Set delimiter as slash or text
-      $class-name: #{$ls-width-class-namespace}#{escape-numerator($numerator, $ls-width-class-namespace)}#{'-'}#{$denominator}#{$breakpoint-alias};
-    } @else {
-      @if $ls-width-class-namespace == '' {
-        @error "Percentage value class names require a namespace to be set (see $ls-width-class-namespace). Selective escaping (e.g. the 5 of 50) cannot be done.";
-      }
-      $class-width: floor(($numerator / $denominator) * 100);
-      $class-name: #{$ls-width-class-namespace}#{$class-width}#{$breakpoint-alias};
+    // Loop through all digits in the numerator and escape individually
+    @for $i from 1 through str-length($numerator-as-string) {
+      $digit: str-slice($numerator-as-string, $i, $i);
+      $escaped-numerator: $ls-width-class-namespace+$escaped-numerator+''+$digit;
     }
 
-    @return $class-name;
+    @return $escaped-numerator;
+  } @else {
+    @return $numerator;
   }
+}
 
-  @function avCreateBlockClassName($modifier: '') {
-    @if $modifier == '' {
-      @return #{$ls-namespace};
+@function ls-create-width-class-name($style, $numerator, $denominator, $breakpoint-alias) {
+
+  $class-name: null;
+
+  @if $style == 'fragment' {
+    // Set delimiter as slash or text
+    $class-name: #{$ls-width-class-namespace}#{escape-numerator($numerator, $ls-width-class-namespace)}#{'-'}#{$denominator}#{$breakpoint-alias};
+  } @else {
+    @if $ls-width-class-namespace == '' {
+      @error "Percentage value class names require a namespace to be set (see $ls-width-class-namespace). Selective escaping (e.g. the 5 of 50) cannot be done.";
     }
-
-    @return #{$ls-namespace}#{$ls-modifier-class-chain}#{$modifier};
+    $class-width: floor(($numerator / $denominator) * 100);
+    $class-name: #{$ls-width-class-namespace}#{$class-width}#{$breakpoint-alias};
   }
 
-  @function avCreateElementClassName($modifier: '') {
-    @if $modifier == '' {
-      @return #{$ls-namespace}#{$ls-element-class-chain}#{$ls-element-name};
-    }
+  @return $class-name;
+}
 
-    @return #{$ls-namespace}#{$ls-element-class-chain}#{$ls-element-name}#{$ls-modifier-class-chain}#{$modifier};
+@function avCreateBlockClassName($modifier: '') {
+  @if $modifier == '' {
+    @return #{$ls-namespace};
   }
+
+  @return #{$ls-namespace}#{$ls-modifier-class-chain}#{$modifier};
+}
+
+@function avCreateElementClassName($modifier: '') {
+  @if $modifier == '' {
+    @return #{$ls-namespace}#{$ls-element-class-chain}#{$ls-element-name};
+  }
+
+  @return #{$ls-namespace}#{$ls-element-class-chain}#{$ls-element-name}#{$ls-modifier-class-chain}#{$modifier};
+}

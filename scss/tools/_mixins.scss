@@ -1,7 +1,6 @@
+// MIXINS
 
-
-
- @mixin ls-create-widths($widths, $breakpoint-alias: null) {
+@mixin ls-create-widths($widths, $breakpoint-alias: null) {
 
   // Initialise an empty utility map that will eventually contain all our classes
   $pseudo-class-map: ();
@@ -36,9 +35,7 @@
           // If this width is in utility map, @extend the duplicate, else create a new one
           @if $duplicate {
             @extend .#{$duplicate};
-          }
-
-          @else {
+          } @else {
             width: $width-value;
 
             @supports (display: flex) and (flex-wrap: wrap) {
