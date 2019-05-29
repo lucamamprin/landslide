@@ -1,6 +1,7 @@
 // Avalanche | MIT License | @colourgarden
 // Forked by Luca Mamprin
 
+// Required SCSS files.
 @import './scss/variables';
 @import './scss/tools/functions';
 @import './scss/tools/mixins';
@@ -295,49 +296,5 @@
   }
 }
 
-@if $ls-enable-grid-spacers {
-  // Loop through spacers
-  @each $id, $spacer in $ls-spacers {
-
-    // Loop between margin and padding
-    @each $property, $prop-alias  in (margin: m, padding: p) {
-
-      // margin and padding on all sides
-      .#{$prop-alias}-#{$id} {
-        #{$property}: $spacer !important;
-
-        @include mq-spacer($property, $spacer)
-      }
-
-      // margin and padding on Y axis
-      .#{$prop-alias}y-#{$id},
-      .#{$prop-alias}t-#{$id} {
-        #{$property}-top: $spacer !important;
-
-        @include mq-spacer($property, $spacer)
-      }
-
-      .#{$prop-alias}y-#{$id},
-      .#{$prop-alias}b-#{$id} {
-        #{$property}-bottom: $spacer !important;
-
-        @include mq-spacer($property, $spacer)
-      }
-
-      // margin and padding on X axis
-      .#{$prop-alias}x-#{$id},
-      .#{$prop-alias}r-#{$id} {
-        #{$property}-right: $spacer !important;
-
-        @include mq-spacer($property, $spacer)
-      }
-
-      .#{$prop-alias}x-#{$id},
-      .#{$prop-alias}l-#{$id} {
-        #{$property}-left: $spacer !important;
-
-        @include mq-spacer($property, $spacer)
-      }
-    }
-  }
-}
+// Optional SCSS files.
+@import "./scss/pluggable/spacers";

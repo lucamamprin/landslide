@@ -64,7 +64,7 @@ $ls-enable-flex: true !default;
 $ls-enable-rtl: true !default;
 
 // Enable/disable spacing utilities
-$ls-enable-grid-spacers: true !default;
+$ls-enable-grid-spacers: false !default;
 
 // Enable/disable responsive spacing utilities
 $ls-enable-grid-spacers-breakpoints: $ls-enable-responsive !default;

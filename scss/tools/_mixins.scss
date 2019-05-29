@@ -71,9 +71,9 @@
   }
 }
 
-@mixin mq-spacer($property, $value) {
+@mixin ls-mq-spacer($property, $value, $opt-property: false) {
   // check if responsive on both variables is on
-  @if $ls-enable-grid-spacers-breakpoints and $ls-enable-responsive {
+  @if $ls-enable-grid-spacers-breakpoints {
 
     // loop every breakpoint
     @each $alias, $query in ($ls-breakpoints) {
@@ -82,6 +82,10 @@
       &#{$ls-breakpoint-class-chain}#{$alias} {
         @include ls-mq($alias) {
           #{$property}: $value !important;
+
+          @if $opt-property {
+            #{$opt-property}: $value !important;
+          }
         }
       }
     }
