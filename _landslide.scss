@@ -1,5 +1,6 @@
-/*! Avalanche | MIT License | @colourgarden */
-/* Forked by Luca Mamprin */
+// Avalanche | MIT License | @colourgarden
+// Forked by Luca Mamprin
+
 @import './scss/variables';
 @import './scss/tools/functions';
 @import './scss/tools/mixins';
@@ -15,10 +16,12 @@
   margin-left: -($ls-gutter);
   font-size: 0;
 
-  @supports (display: flex) and (flex-wrap: wrap) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  @if $ls-enable-flex {
+    @supports (display: flex) and (flex-wrap: wrap) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
   @if $ls-enable-rtl {
@@ -40,10 +43,12 @@
   font-size: $ls-base-font-size;
   position: relative;
 
-  @supports (display: flex) and (flex-wrap: wrap) {
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: 100%;
+  @if $ls-enable-flex {
+    @supports (display: flex) and (flex-wrap: wrap) {
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 100%;
+    }
   }
 
   @if $ls-enable-rtl {
@@ -58,8 +63,10 @@
   .#{avCreateBlockClassName('center')} {
     text-align: center;
 
-    @supports (display: flex) and (flex-wrap: wrap) {
-      justify-content: center;
+    @if $ls-enable-flex {
+      @supports (display: flex) and (flex-wrap: wrap) {
+        justify-content: center;
+      }
     }
 
     > .#{avCreateElementClassName()} {
@@ -80,8 +87,10 @@
   .#{avCreateBlockClassName('right')} {
     text-align: right;
 
-    @supports (justify-content: right) {
-      justify-content: right;
+    @if $ls-enable-flex {
+      @supports (justify-content: right) {
+        justify-content: right;
+      }
     }
 
     > .#{avCreateElementClassName()} {
@@ -92,15 +101,19 @@
 
 @if $ls-enable-grid-middle {
   .#{avCreateBlockClassName('middle')} {
-    @supports (align-items: center) {
-      align-items: center;
+    @if $ls-enable-flex {
+      @supports (align-items: center) {
+        align-items: center;
+      }
     }
 
     > .#{avCreateElementClassName()} {
       vertical-align: middle;
 
-      @supports (align-items: center) {
-        vertical-align: inherit;
+      @if $ls-enable-flex {
+        @supports (align-items: center) {
+          vertical-align: inherit;
+        }
       }
     }
   }
@@ -108,15 +121,19 @@
 
 @if $ls-enable-grid-bottom {
   .#{avCreateBlockClassName('bottom')} {
-    @supports (align-items: flex-end) {
-      align-items: flex-end;
+    @if $ls-enable-flex {
+      @supports (align-items: flex-end) {
+        align-items: flex-end;
+      }
     }
 
     > .#{avCreateElementClassName()} {
       vertical-align: bottom;
 
-      @supports (align-items: flex-end) {
-        vertical-align: inherit;
+      @if $ls-enable-flex {
+        @supports (align-items: flex-end) {
+          vertical-align: inherit;
+        }
       }
     }
   }
@@ -227,9 +244,11 @@
     > .#{avCreateElementClassName()} {
       width: auto;
 
-      @supports (flex-basis: 0) {
-        flex-basis: 0;
-        max-width: 100%;
+      @if $ls-enable-flex {
+        @supports (flex-basis: 0) {
+          flex-basis: 0;
+          max-width: 100%;
+        }
       }
     }
   }
@@ -239,16 +258,20 @@
   .#{avCreateBlockClassName('rev')} {
     direction: rtl;
 
-    @supports (flex-direction: row-reverse) {
-      direction: inherit;
-      flex-direction: row-reverse;
+    @if $ls-enable-flex {
+      @supports (flex-direction: row-reverse) {
+        direction: inherit;
+        flex-direction: row-reverse;
+      }
     }
 
     > .#{avCreateElementClassName()} {
       direction: ltr;
 
-      @supports (flex-direction: row-reverse) {
-        direction: inherit;
+      @if $ls-enable-flex {
+        @supports (flex-direction: row-reverse) {
+          direction: inherit;
+        }
       }
     }
   }

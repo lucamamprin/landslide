@@ -1,6 +1,5 @@
-/**
- * SETTINGS
- */
+// SETTINGS
+
 $ls-namespace: 'grid' !default; // Prefix namespace for grid layout and cells
 $ls-element-name: 'cell' !default; // Element/cell name
 $ls-element-class-chain: '__' !default; // Chain characters between block and element
@@ -48,6 +47,9 @@ $ls-enable-grid-rev: false !default;
 
 // Enable/disable spacing utilities
 $ls-enable-grid-margins: false !default;
+
+// Enable/disable flexbox support
+$ls-enable-flex: true !default;
 
 // Enable/disable rtl support
 $ls-enable-rtl: true !default;

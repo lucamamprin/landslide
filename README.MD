@@ -132,6 +132,12 @@ All cells take up an unspecified width set by their content.
 **`$ls-enable-grid-rev`**
 Grid cells are displayed in the opposite of their source order.
 
+**`$ls-enable-flex`**
+Enable flexbox functionalities in the grid. Set to `false` to debug the `inline-block` grid, or if you don't want flexbox.  Default: `true`.
+
+**`$ls-enable-rtl`**
+Enable RTL layout support. Default: `true`.
+
 ## Media query
 
 Landslide includes a media query mixin that makes use of the breakpoint aliases you set. This enables better coupling between your grid and other responsive content items. Usage as follows.
