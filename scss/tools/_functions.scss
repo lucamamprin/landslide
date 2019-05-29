@@ -35,7 +35,7 @@
   @return $class-name;
 }
 
-@function avCreateBlockClassName($modifier: '') {
+@function slCreateBlockClassName($modifier: '') {
   @if $modifier == '' {
     @return #{$ls-namespace};
   }
@@ -43,7 +43,7 @@
   @return #{$ls-namespace}#{$ls-modifier-class-chain}#{$modifier};
 }
 
-@function avCreateElementClassName($modifier: '') {
+@function slCreateElementClassName($modifier: '') {
   @if $modifier == '' {
     @return #{$ls-namespace}#{$ls-element-class-chain}#{$ls-element-name};
   }

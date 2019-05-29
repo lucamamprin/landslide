@@ -9,7 +9,7 @@
 /**
  * GRID LAYOUT
  */
-.#{avCreateBlockClassName()} {
+.#{slCreateBlockClassName()} {
   display: block;
   list-style: none;
   padding: 0;
@@ -33,7 +33,7 @@
   }
 }
 
-.#{avCreateElementClassName()} {
+.#{slCreateElementClassName()} {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
@@ -61,7 +61,7 @@
 }
 
 @if $ls-enable-grid-center {
-  .#{avCreateBlockClassName('center')} {
+  .#{slCreateBlockClassName('center')} {
     text-align: center;
 
     @if $ls-enable-flex {
@@ -70,14 +70,14 @@
       }
     }
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       text-align: left;
     }
   }
 }
 
 @if $ls-enable-grid-cell-center {
-  .#{avCreateElementClassName('center')} {
+  .#{slCreateElementClassName('center')} {
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -85,7 +85,7 @@
 }
 
 @if $ls-enable-grid-right {
-  .#{avCreateBlockClassName('right')} {
+  .#{slCreateBlockClassName('right')} {
     text-align: right;
 
     @if $ls-enable-flex {
@@ -94,21 +94,21 @@
       }
     }
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       text-align: left;
     }
   }
 }
 
 @if $ls-enable-grid-middle {
-  .#{avCreateBlockClassName('middle')} {
+  .#{slCreateBlockClassName('middle')} {
     @if $ls-enable-flex {
       @supports (align-items: center) {
         align-items: center;
       }
     }
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       vertical-align: middle;
 
       @if $ls-enable-flex {
@@ -121,14 +121,14 @@
 }
 
 @if $ls-enable-grid-bottom {
-  .#{avCreateBlockClassName('bottom')} {
+  .#{slCreateBlockClassName('bottom')} {
     @if $ls-enable-flex {
       @supports (align-items: flex-end) {
         align-items: flex-end;
       }
     }
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       vertical-align: bottom;
 
       @if $ls-enable-flex {
@@ -141,10 +141,10 @@
 }
 
 @if $ls-enable-grid-flush {
-  .#{avCreateBlockClassName('flush')} {
+  .#{slCreateBlockClassName('flush')} {
     margin-left: 0;
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       padding-left: 0;
     }
 
@@ -152,7 +152,7 @@
       @at-root html[dir=rtl] & {
         margin-right: 0;
 
-        > .#{avCreateElementClassName()} {
+        > .#{slCreateElementClassName()} {
           padding-right: 0;
         }
       }
@@ -161,10 +161,10 @@
 }
 
 @if $ls-enable-grid-tiny {
-  .#{avCreateBlockClassName('tiny')} {
+  .#{slCreateBlockClassName('tiny')} {
     margin-left: -($ls-gutter / 4);
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       padding-left: ($ls-gutter / 4);
     }
 
@@ -172,7 +172,7 @@
       @at-root html[dir=rtl] & {
         margin-right: -($ls-gutter / 4);
 
-        > .#{avCreateElementClassName()} {
+        > .#{slCreateElementClassName()} {
           padding-right: ($ls-gutter / 4);
         }
       }
@@ -181,10 +181,10 @@
 }
 
 @if $ls-enable-grid-small {
-  .#{avCreateBlockClassName('small')} {
+  .#{slCreateBlockClassName('small')} {
     margin-left: -($ls-gutter / 2);
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       padding-left: ($ls-gutter / 2);
     }
 
@@ -192,7 +192,7 @@
       @at-root html[dir=rtl] & {
         margin-right: -($ls-gutter / 2);
 
-        > .#{avCreateElementClassName()} {
+        > .#{slCreateElementClassName()} {
           padding-right: ($ls-gutter / 2);
         }
       }
@@ -201,10 +201,10 @@
 }
 
 @if $ls-enable-grid-large {
-  .#{avCreateBlockClassName('large')} {
+  .#{slCreateBlockClassName('large')} {
     margin-left: -($ls-gutter * 2);
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       padding-left: ($ls-gutter * 2);
     }
 
@@ -212,7 +212,7 @@
       @at-root html[dir=rtl] & {
         margin-right: -($ls-gutter * 2);
 
-        > .#{avCreateElementClassName()} {
+        > .#{slCreateElementClassName()} {
           padding-right: ($ls-gutter * 2);
         }
       }
@@ -221,10 +221,10 @@
 }
 
 @if $ls-enable-grid-huge {
-  .#{avCreateBlockClassName('huge')} {
+  .#{slCreateBlockClassName('huge')} {
     margin-left: -($ls-gutter * 4);
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       padding-left: ($ls-gutter * 4);
     }
 
@@ -232,7 +232,7 @@
       @at-root html[dir=rtl] & {
         margin-right: -($ls-gutter * 4);
 
-        > .#{avCreateElementClassName()} {
+        > .#{slCreateElementClassName()} {
           padding-right: ($ls-gutter * 4);
         }
       }
@@ -241,8 +241,8 @@
 }
 
 @if $ls-enable-grid-auto {
-  .#{avCreateBlockClassName('auto')} {
-    > .#{avCreateElementClassName()} {
+  .#{slCreateBlockClassName('auto')} {
+    > .#{slCreateElementClassName()} {
       width: auto;
 
       @if $ls-enable-flex {
@@ -256,7 +256,7 @@
 }
 
 @if $ls-enable-grid-rev {
-  .#{avCreateBlockClassName('rev')} {
+  .#{slCreateBlockClassName('rev')} {
     direction: rtl;
 
     @if $ls-enable-flex {
@@ -266,7 +266,7 @@
       }
     }
 
-    > .#{avCreateElementClassName()} {
+    > .#{slCreateElementClassName()} {
       direction: ltr;
 
       @if $ls-enable-flex {
