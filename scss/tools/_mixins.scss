@@ -38,12 +38,14 @@
           } @else {
             width: $width-value;
 
-            @supports (display: flex) and (flex-wrap: wrap) {
-              width: 100%;
-              flex-grow: 1;
-              flex-shrink: 0;
-              flex-basis: $width-value;
-              max-width: $width-value;
+            @if $ls-enable-flex {
+              @supports (display: flex) and (flex-wrap: wrap) {
+                width: 100%;
+                flex-grow: 1;
+                flex-shrink: 0;
+                flex-basis: $width-value;
+                max-width: $width-value;
+              }
             }
           }
         }
@@ -64,8 +66,7 @@
   @if $operand != 1 {
     @if $divide {
       $grid-gutter: $gutter / $operand;
-    }
-    @else {
+    } @else {
       $grid-gutter: $gutter * $operand;
     }
   }
