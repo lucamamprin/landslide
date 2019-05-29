@@ -1,14 +1,11 @@
 // Avalanche | MIT License | @colourgarden
 // Forked by Luca Mamprin
-
 // Required SCSS files.
 @import './scss/variables';
 @import './scss/tools/functions';
 @import './scss/tools/mixins';
 
-/**
- * GRID LAYOUT
- */
+// GRID LAYOUT
 .#{slCreateBlockClassName()} {
   display: block;
   list-style: none;
@@ -160,83 +157,10 @@
   }
 }
 
-@if $ls-enable-grid-tiny {
-  .#{slCreateBlockClassName('tiny')} {
-    margin-left: -($ls-gutter / 4);
-
-    > .#{slCreateElementClassName()} {
-      padding-left: ($ls-gutter / 4);
-    }
-
-    @if $ls-enable-rtl {
-      @at-root html[dir=rtl] & {
-        margin-right: -($ls-gutter / 4);
-
-        > .#{slCreateElementClassName()} {
-          padding-right: ($ls-gutter / 4);
-        }
-      }
-    }
-  }
-}
-
-@if $ls-enable-grid-small {
-  .#{slCreateBlockClassName('small')} {
-    margin-left: -($ls-gutter / 2);
-
-    > .#{slCreateElementClassName()} {
-      padding-left: ($ls-gutter / 2);
-    }
-
-    @if $ls-enable-rtl {
-      @at-root html[dir=rtl] & {
-        margin-right: -($ls-gutter / 2);
-
-        > .#{slCreateElementClassName()} {
-          padding-right: ($ls-gutter / 2);
-        }
-      }
-    }
-  }
-}
-
-@if $ls-enable-grid-large {
-  .#{slCreateBlockClassName('large')} {
-    margin-left: -($ls-gutter * 2);
-
-    > .#{slCreateElementClassName()} {
-      padding-left: ($ls-gutter * 2);
-    }
-
-    @if $ls-enable-rtl {
-      @at-root html[dir=rtl] & {
-        margin-right: -($ls-gutter * 2);
-
-        > .#{slCreateElementClassName()} {
-          padding-right: ($ls-gutter * 2);
-        }
-      }
-    }
-  }
-}
-
-@if $ls-enable-grid-huge {
-  .#{slCreateBlockClassName('huge')} {
-    margin-left: -($ls-gutter * 4);
-
-    > .#{slCreateElementClassName()} {
-      padding-left: ($ls-gutter * 4);
-    }
-
-    @if $ls-enable-rtl {
-      @at-root html[dir=rtl] & {
-        margin-right: -($ls-gutter * 4);
-
-        > .#{slCreateElementClassName()} {
-          padding-right: ($ls-gutter * 4);
-        }
-      }
-    }
+// Create grid containers for each set size
+@each $grid-enabled, $grid-key, $division, $operand in $ls-grids-sizes {
+  @if $grid-enabled {
+    @include ls-create-grid($grid-key, $ls-gutter, $division, $operand)
   }
 }
 
@@ -278,9 +202,7 @@
   }
 }
 
-/**
- * GRID WIDTHS
- */
+// GRID WIDTHS
 
 // Loop default widths
 @include ls-create-widths($ls-widths);

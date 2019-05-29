@@ -56,6 +56,39 @@
   }
 }
 
+// $grid-key: string that identifies the grid
+// $gutter: customisable rem or px value. Default: $ls-gutter
+@mixin ls-create-grid($grid-key, $gutter, $divide, $operand) {
+  $grid-gutter: $gutter;
+
+  @if $operand != 1 {
+    @if $divide {
+      $grid-gutter: $gutter / $operand;
+    }
+    @else {
+      $grid-gutter: $gutter * $operand;
+    }
+  }
+
+  .#{slCreateBlockClassName($grid-key)} {
+    margin-left: -($grid-gutter);
+
+    > .#{slCreateElementClassName()} {
+      padding-left: ($grid-gutter);
+    }
+
+    @if $ls-enable-rtl {
+      @at-root html[dir=rtl] & {
+        margin-right: -($grid-gutter);
+
+        > .#{slCreateElementClassName()} {
+          padding-right: ($grid-gutter);
+        }
+      }
+    }
+  }
+}
+
 @mixin ls-mq($alias) {
 
   // Search breakpoint map for alias

@@ -52,10 +52,26 @@ $ls-enable-grid-bottom: false !default;
 $ls-enable-grid-flush: false !default;
 $ls-enable-grid-tiny: false !default;
 $ls-enable-grid-small: false !default;
+$ls-enable-grid-medium: false !default;
 $ls-enable-grid-large: false !default;
 $ls-enable-grid-huge: false !default;
 $ls-enable-grid-auto: false !default;
 $ls-enable-grid-rev: false !default;
+
+
+// Map structure:
+// $boolean - indicates whether or not the size should compile.
+// $key - indicates the name of the size
+// $boolean - if true, divides by $operator, otherwise multiply by $operator
+// $operator - by which number the loop will divide or multiply
+
+$ls-grids-sizes: (
+    ($ls-enable-grid-tiny, 'tiny', true, 4),
+    ($ls-enable-grid-small, 'small', true, 2),
+    ($ls-enable-grid-medium, 'medium', false, 1),
+    ($ls-enable-grid-large, 'large', false, 2),
+    ($ls-enable-grid-huge, 'huge', false, 4),
+) !default;
 
 // Enable/disable flexbox support
 $ls-enable-flex: true !default;

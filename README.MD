@@ -97,7 +97,7 @@ Pixel or rem value for the margin and padding utilities. Default: `$ls-gutter`.
 Enable responsive spacers (example: margin bottom only above or below a certain breakpoint). Default: `$ls-enable-responsive`
 *N.B. This setting has a huge impact on the size of your compiled CSS. Avoid bloat by using PostCSS to remove the utilities you don't use.*
 
-**`$ls-breakpoints`**
+**`$ls-spacers`**
 Sass map of sizes for the margin and padding utilities. Default:
 
 ```
@@ -142,6 +142,9 @@ Gutters between cells set to a quarter of the global gutter value. Default: `5px
 **`$ls-enable-grid-small`**
 Gutters between cells set to half of the global gutter value. Default: `10px`.
 
+**`$ls-enable-grid-medium`**
+Gutters between cells set to the global gutter value. Default: `20px`.
+
 **`$ls-enable-grid-large`**
 Gutters between cells set to double the global gutter value. Default: `40px`.
 
@@ -162,6 +165,21 @@ Enable RTL layout support. Default: `true`.
 
 **`$ls-enable-grid-spacers`**
 Enable margin and padding utilities. Default: `false`.
+
+**`$ls-grids-sizes`**
+Sass map that will be used to loop the grids.
+The first value corresponds to the boolean that enables/disables the grid size (see "Grid Layouts"); the second value is the name of the size; third value is true if the loop will have to divide or multiply by the fourth value.
+ Default:
+```
+(
+    ($ls-enable-grid-tiny, 'tiny', true, 4),
+    ($ls-enable-grid-small, 'small', true, 2),
+    ($ls-enable-grid-medium, 'medium', false, 1),
+    ($ls-enable-grid-large, 'large', false, 2),
+    ($ls-enable-grid-huge, 'huge', false, 4),
+);
+```
+
 
 ## Media query
 
