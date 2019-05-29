@@ -1,260 +1,273 @@
 /*! Avalanche | MIT License | @colourgarden */
 /* Forked by Luca Mamprin */
-
 @import './scss/variables';
 @import './scss/tools/functions';
 @import './scss/tools/mixins';
 
- /**
-  * GRID LAYOUT
-  */
- .#{avCreateBlockClassName()} {
-   display: block;
-   list-style: none;
-   padding: 0;
-   margin: 0;
-   margin-left: -($ls-gutter);
-   font-size: 0;
+/**
+ * GRID LAYOUT
+ */
+.#{avCreateBlockClassName()} {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -($ls-gutter);
+  font-size: 0;
 
-   @supports (display: flex) and (flex-wrap: wrap) {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-   }
+  @supports (display: flex) and (flex-wrap: wrap) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-   @at-root html[dir=rtl] & {
-     margin-left: 0;
-     margin-right: -($ls-gutter);
-   }
- }
+  @if $ls-enable-rtl {
+    @at-root html[dir=rtl] & {
+      margin-left: 0;
+      margin-right: -($ls-gutter);
+    }
+  }
+}
 
- .#{avCreateElementClassName()} {
-   box-sizing: border-box;
-   display: inline-block;
-   width: 100%;
-   padding: 0;
-   padding-left: $ls-gutter;
-   margin: 0;
-   vertical-align: top;
-   font-size: 1rem;
-   position: relative;
+.#{avCreateElementClassName()} {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  padding-left: $ls-gutter;
+  margin: 0;
+  vertical-align: top;
+  font-size: $ls-base-font-size;
+  position: relative;
 
-   @supports (display: flex) and (flex-wrap: wrap) {
-     flex-grow: 1;
-     flex-shrink: 0;
-     flex-basis: 100%;
-   }
+  @supports (display: flex) and (flex-wrap: wrap) {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
+  }
 
-   @at-root html[dir=rtl] & {
-     padding-left: 0;
-     padding-right: $ls-gutter;
-   }
- }
+  @if $ls-enable-rtl {
+    @at-root html[dir=rtl] & {
+      padding-left: 0;
+      padding-right: $ls-gutter;
+    }
+  }
+}
 
- @if $ls-enable-grid-center {
-   .#{avCreateBlockClassName('center')} {
-     text-align: center;
+@if $ls-enable-grid-center {
+  .#{avCreateBlockClassName('center')} {
+    text-align: center;
 
-     @supports (display: flex) and (flex-wrap: wrap) {
-       justify-content: center;
-     }
+    @supports (display: flex) and (flex-wrap: wrap) {
+      justify-content: center;
+    }
 
-     > .#{avCreateElementClassName()} {
-       text-align: left;
-     }
-   }
- }
+    > .#{avCreateElementClassName()} {
+      text-align: left;
+    }
+  }
+}
 
- @if $ls-enable-grid-cell-center {
-   .#{avCreateElementClassName('center')} {
-     display: block;
-     margin-right: auto;
-     margin-left: auto;
-   }
- }
+@if $ls-enable-grid-cell-center {
+  .#{avCreateElementClassName('center')} {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 
- @if $ls-enable-grid-right {
-   .#{avCreateBlockClassName('right')} {
-     text-align: right;
+@if $ls-enable-grid-right {
+  .#{avCreateBlockClassName('right')} {
+    text-align: right;
 
-     @supports (justify-content: right) {
-       justify-content: right;
-     }
+    @supports (justify-content: right) {
+      justify-content: right;
+    }
 
-     > .#{avCreateElementClassName()} {
-       text-align: left;
-     }
-   }
- }
+    > .#{avCreateElementClassName()} {
+      text-align: left;
+    }
+  }
+}
 
- @if $ls-enable-grid-middle {
-   .#{avCreateBlockClassName('middle')} {
-     @supports (align-items: center) {
-       align-items: center;
-     }
+@if $ls-enable-grid-middle {
+  .#{avCreateBlockClassName('middle')} {
+    @supports (align-items: center) {
+      align-items: center;
+    }
 
-     > .#{avCreateElementClassName()} {
-       vertical-align: middle;
+    > .#{avCreateElementClassName()} {
+      vertical-align: middle;
 
-       @supports (align-items: center) {
-         vertical-align: inherit;
-       }
-     }
-   }
- }
+      @supports (align-items: center) {
+        vertical-align: inherit;
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-bottom {
-   .#{avCreateBlockClassName('bottom')} {
-     @supports (align-items: flex-end) {
-       align-items: flex-end;
-     }
+@if $ls-enable-grid-bottom {
+  .#{avCreateBlockClassName('bottom')} {
+    @supports (align-items: flex-end) {
+      align-items: flex-end;
+    }
 
-     > .#{avCreateElementClassName()} {
-       vertical-align: bottom;
+    > .#{avCreateElementClassName()} {
+      vertical-align: bottom;
 
-       @supports (align-items: flex-end) {
-         vertical-align: inherit;
-       }
-     }
-   }
- }
+      @supports (align-items: flex-end) {
+        vertical-align: inherit;
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-flush {
-   .#{avCreateBlockClassName('flush')} {
-     margin-left: 0;
+@if $ls-enable-grid-flush {
+  .#{avCreateBlockClassName('flush')} {
+    margin-left: 0;
 
-     > .#{avCreateElementClassName()} {
-       padding-left: 0;
-     }
+    > .#{avCreateElementClassName()} {
+      padding-left: 0;
+    }
 
-     @at-root html[dir=rtl] & {
-       margin-right: 0;
+    @if $ls-enable-rtl {
+      @at-root html[dir=rtl] & {
+        margin-right: 0;
 
-       > .#{avCreateElementClassName()} {
-         padding-right: 0;
-       }
-     }
-   }
- }
+        > .#{avCreateElementClassName()} {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-tiny {
-   .#{avCreateBlockClassName('tiny')} {
-     margin-left: -($ls-gutter / 4);
+@if $ls-enable-grid-tiny {
+  .#{avCreateBlockClassName('tiny')} {
+    margin-left: -($ls-gutter / 4);
 
-     > .#{avCreateElementClassName()} {
-       padding-left: ($ls-gutter / 4);
-     }
+    > .#{avCreateElementClassName()} {
+      padding-left: ($ls-gutter / 4);
+    }
 
-     @at-root html[dir=rtl] & {
-       margin-right: -($ls-gutter / 4);
+    @if $ls-enable-rtl {
+      @at-root html[dir=rtl] & {
+        margin-right: -($ls-gutter / 4);
 
-       > .#{avCreateElementClassName()} {
-         padding-right: ($ls-gutter / 4);
-       }
-     }
-   }
- }
+        > .#{avCreateElementClassName()} {
+          padding-right: ($ls-gutter / 4);
+        }
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-small {
-   .#{avCreateBlockClassName('small')} {
-     margin-left: -($ls-gutter / 2);
+@if $ls-enable-grid-small {
+  .#{avCreateBlockClassName('small')} {
+    margin-left: -($ls-gutter / 2);
 
-     > .#{avCreateElementClassName()} {
-       padding-left: ($ls-gutter / 2);
-     }
+    > .#{avCreateElementClassName()} {
+      padding-left: ($ls-gutter / 2);
+    }
 
-     @at-root html[dir=rtl] & {
-       margin-right: -($ls-gutter / 2);
+    @if $ls-enable-rtl {
+      @at-root html[dir=rtl] & {
+        margin-right: -($ls-gutter / 2);
 
-       > .#{avCreateElementClassName()} {
-         padding-right: ($ls-gutter / 2);
-       }
-     }
-   }
- }
+        > .#{avCreateElementClassName()} {
+          padding-right: ($ls-gutter / 2);
+        }
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-large {
-   .#{avCreateBlockClassName('large')} {
-     margin-left: -($ls-gutter * 2);
+@if $ls-enable-grid-large {
+  .#{avCreateBlockClassName('large')} {
+    margin-left: -($ls-gutter * 2);
 
-     > .#{avCreateElementClassName()} {
-       padding-left: ($ls-gutter * 2);
-     }
+    > .#{avCreateElementClassName()} {
+      padding-left: ($ls-gutter * 2);
+    }
 
-     @at-root html[dir=rtl] & {
-       margin-right: -($ls-gutter * 2);
+    @if $ls-enable-rtl {
+      @at-root html[dir=rtl] & {
+        margin-right: -($ls-gutter * 2);
 
-       > .#{avCreateElementClassName()} {
-         padding-right: ($ls-gutter * 2);
-       }
-     }
-   }
- }
+        > .#{avCreateElementClassName()} {
+          padding-right: ($ls-gutter * 2);
+        }
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-huge {
-   .#{avCreateBlockClassName('huge')} {
-     margin-left: -($ls-gutter * 4);
+@if $ls-enable-grid-huge {
+  .#{avCreateBlockClassName('huge')} {
+    margin-left: -($ls-gutter * 4);
 
-     > .#{avCreateElementClassName()} {
-       padding-left: ($ls-gutter * 4);
-     }
+    > .#{avCreateElementClassName()} {
+      padding-left: ($ls-gutter * 4);
+    }
 
-     @at-root html[dir=rtl] & {
-       margin-right: -($ls-gutter * 4);
+    @if $ls-enable-rtl {
+      @at-root html[dir=rtl] & {
+        margin-right: -($ls-gutter * 4);
 
-       > .#{avCreateElementClassName()} {
-         padding-right: ($ls-gutter * 4);
-       }
-     }
-   }
- }
+        > .#{avCreateElementClassName()} {
+          padding-right: ($ls-gutter * 4);
+        }
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-auto {
-   .#{avCreateBlockClassName('auto')} {
-     > .#{avCreateElementClassName()} {
-       width: auto;
+@if $ls-enable-grid-auto {
+  .#{avCreateBlockClassName('auto')} {
+    > .#{avCreateElementClassName()} {
+      width: auto;
 
-       @supports (flex-basis: 0) {
-         flex-basis: 0;
-         max-width: 100%;
-       }
-     }
-   }
- }
+      @supports (flex-basis: 0) {
+        flex-basis: 0;
+        max-width: 100%;
+      }
+    }
+  }
+}
 
- @if $ls-enable-grid-rev {
-   .#{avCreateBlockClassName('rev')} {
-     direction: rtl;
+@if $ls-enable-grid-rev {
+  .#{avCreateBlockClassName('rev')} {
+    direction: rtl;
 
-     @supports (flex-direction: row-reverse) {
-       direction: inherit;
-       flex-direction: row-reverse;
-     }
+    @supports (flex-direction: row-reverse) {
+      direction: inherit;
+      flex-direction: row-reverse;
+    }
 
-     > .#{avCreateElementClassName()} {
-       direction: ltr;
+    > .#{avCreateElementClassName()} {
+      direction: ltr;
 
-       @supports (flex-direction: row-reverse) {
-         direction: inherit;
-       }
-     }
-   }
- }
+      @supports (flex-direction: row-reverse) {
+        direction: inherit;
+      }
+    }
+  }
+}
 
- /**
-  * GRID WIDTHS
-  */
+/**
+ * GRID WIDTHS
+ */
 
- // Loop default widths
- @include ls-create-widths($ls-widths);
+// Loop default widths
+@include ls-create-widths($ls-widths);
 
- // If responsive flag enabled, loop breakpoint widths
- @if $ls-enable-responsive {
-   @each $alias, $query in $ls-breakpoints {
+// If responsive flag enabled, loop breakpoint widths
+@if $ls-enable-responsive {
+  @each $alias, $query in $ls-breakpoints {
 
-     // Create each media query
-     @media #{$query} {
-       @include ls-create-widths($ls-widths, #{$ls-breakpoint-class-chain}#{$alias});
-     }
-   }
- }
+    // Create each media query
+    @media #{$query} {
+      @include ls-create-widths($ls-widths, #{$ls-breakpoint-class-chain}#{$alias});
+    }
+  }
+}
