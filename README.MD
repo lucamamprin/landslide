@@ -4,18 +4,19 @@
 
 ## Why use Landslide?
 
-- No bloat. Only create the selectors you'll actually use
-- No duplication. .col-1-2 == .col-2-4 so why create two selectors?
+- No bloat. Only create the selectors you'll actually use.
+- No duplication: `.col-1-2` is the same as `.col-2-4`, so why create two selectors?
 - No floats. No clears. No .last
-- Flexible, configurable naming conventions
-- Nesting to infinity and beyond
-- Real-world breakpoint naming. 'thumb', 'handheld' and 'desk'; not 'xs', 'md' and 'xl'
-- Integrated media query mixin. Connect your media queries to your grid breakpoints
+- Flexible, configurable naming conventions.
+- Nesting to infinity and beyond.
+- Real-world breakpoint naming. 'thumb', 'handheld' and 'desk'; not 'xs', 'md' and 'xl'.
+- Integrated media query mixin. Connect your media queries to your grid breakpoints.
 
 ## What are the differences from Avalanche?
 - This fork implements a Flexbox grid by using the `@supports` CSS at-rule on top of the original `inline-block` based grid from Avalanche.
 - Added `rtl` support for better localization. (Yes, even the reverse grid works!)
 - Removed the `fraction` option from the code, to avoid issues in compilation with dart-sass and some other compilers.
+- Tired of manually setting margins and paddings? Now you can set `$ls-enable-grid-spacers` to `true` to compile tons of customizable utilities.
 
 ## Installation
 1. Import `_landslide.scss` to your project via NPM or by manually copying to vendor folder (`@import "vendor/landslide"`)
