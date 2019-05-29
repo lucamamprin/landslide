@@ -89,6 +89,27 @@ Default:
 )
 ```
 
+**`$ls-base-spacer`**
+Pixel or rem value for the margin and padding utilities. Default: `$ls-gutter`.
+
+**`$ls-enable-grid-spacers-breakpoints`**
+Enable responsive spacers (example: margin bottom only above or below a certain breakpoint). Default: `$ls-enable-responsive`
+*N.B. This setting has a huge impact on the size of your compiled CSS. Avoid bloat by using PostCSS to remove the utilities you don't use.*
+
+**`$ls-breakpoints`**
+Sass map of sizes for the margin and padding utilities. Default:
+
+```
+  (
+    0: 0,
+    1: $ls-base-spacer * 0.25,
+    2: $ls-base-spacer * 0.5,
+    3: $ls-base-spacer,
+    4: $ls-base-spacer * 1.5,
+    5: $ls-base-spacer * 2,
+  )
+```
+
 ## Grid layouts
 
 Apply as modifier classes to your base `grid` element. For example; `<div class="grid grid--center">`.
@@ -137,6 +158,9 @@ Enable flexbox functionalities in the grid. Set to `false` to debug the `inline-
 
 **`$ls-enable-rtl`**
 Enable RTL layout support. Default: `true`.
+
+**`$ls-enable-grid-spacers`**
+Enable margin and padding utilities. Default: `false`.
 
 ## Media query
 

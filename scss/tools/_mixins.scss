@@ -70,3 +70,20 @@
     @error "No breakpoint found for #{$alias}";
   }
 }
+
+@mixin mq-spacer($property, $value) {
+  // check if responsive on both variables is on
+  @if $ls-enable-grid-spacers-breakpoints and $ls-enable-responsive {
+
+    // loop every breakpoint
+    @each $alias, $query in ($ls-breakpoints) {
+
+      // take the name of the parent class, add the breakpoint modifier and alias
+      &#{$ls-breakpoint-class-chain}#{$alias} {
+        @include ls-mq($alias) {
+          #{$property}: $value !important;
+        }
+      }
+    }
+  }
+}

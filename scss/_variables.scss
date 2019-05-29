@@ -17,6 +17,18 @@ $ls-widths: (
   4
 ) !default; // Width denominator values. 2 = 1/2, 3 = 1/3 etc. Add/remove as appropriate
 
+// Spacers
+$ls-base-spacer: $ls-gutter !default;
+
+$ls-spacers: (
+  0: 0,
+  1: $ls-base-spacer * 0.25,
+  2: $ls-base-spacer * 0.5,
+  3: $ls-base-spacer,
+  4: $ls-base-spacer * 1.5,
+  5: $ls-base-spacer * 2,
+) !default;
+
 $ls-enable-responsive: true !default;
 $ls-breakpoints: (
   "thumb": "screen and (max-width: 499px)",
@@ -28,7 +40,7 @@ $ls-breakpoints: (
   "portable": "screen and (max-width: 1024px)",
   "desk": "screen and (min-width: 1025px)",
   "widescreen": "screen and (min-width: 1160px)",
-  "retina": "screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx)"
+  "retina": "screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx)",
 ) !default; // Responsive breakpoints. Add/remove as appropriate
 
 // Enable/disable grid layouts
@@ -45,11 +57,14 @@ $ls-enable-grid-huge: false !default;
 $ls-enable-grid-auto: false !default;
 $ls-enable-grid-rev: false !default;
 
-// Enable/disable spacing utilities
-$ls-enable-grid-margins: false !default;
-
 // Enable/disable flexbox support
 $ls-enable-flex: true !default;
 
 // Enable/disable rtl support
 $ls-enable-rtl: true !default;
+
+// Enable/disable spacing utilities
+$ls-enable-grid-spacers: true !default;
+
+// Enable/disable responsive spacing utilities
+$ls-enable-grid-spacers-breakpoints: $ls-enable-responsive !default;
