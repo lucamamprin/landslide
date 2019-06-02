@@ -19,7 +19,7 @@
 - Tired of manually setting margins and paddings? Now you can set `$ls-enable-grid-spacers` to `true` to compile tons of customizable utilities.
 
 ## Installation
-1. Import `_landslide.scss` to your project via NPM or by manually copying to vendor folder (`@import "vendor/landslide"`)
+1. Import `~/landslide/src/_landslide.scss` to your project via NPM
 2. Override settings to fit your requirements or use the defaults
 3. Compile!
 

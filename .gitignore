@@ -1,6 +1,4 @@
 .DS_Store
-*.css
-!landslide.min.css
 *.map
 .sass-cache
 node_modules/
