@@ -43,6 +43,7 @@
 
   @if $ls-enable-flex {
     @supports (display: flex) and (flex-wrap: wrap) {
+      display: block;
       flex-grow: 1;
       flex-shrink: 0;
       flex-basis: 100%;
@@ -219,4 +220,5 @@
 }
 
 // Optional SCSS files.
+@import "./pluggables/displays";
 @import "./pluggables/spacers";

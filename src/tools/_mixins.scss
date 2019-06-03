@@ -105,8 +105,24 @@
   }
 }
 
+// apply CSS $property with $value set as !important if $responsive is enabled for the utility.
+@mixin ls-mq-property($property, $value, $responsive: $ls-enable-responsive) {
+  @if $responsive {
+    // loop every breakpoint
+    @each $alias, $query in ($ls-breakpoints) {
+
+      // take the name of the parent class, add the breakpoint modifier and alias
+      &#{$ls-breakpoint-class-chain}#{$alias} {
+        @include ls-mq($alias) {
+          #{$property}: $value !important;
+        }
+      }
+    }
+  }
+}
+
 @mixin ls-mq-spacer($property, $value, $opt-property: false) {
-  // check if responsive on both variables is on
+  // check if responsive is enabled for margins
   @if $ls-enable-grid-spacers-breakpoints {
 
     // loop every breakpoint

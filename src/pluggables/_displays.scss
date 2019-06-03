@@ -1,0 +1,11 @@
+// Loop through display utilities
+
+@if $ls-enable-displays {
+  @each $display in $ls-displays {
+    .d-#{$display} {
+      display: $display !important;
+
+      @include ls-mq-property(display, $display, $ls-enable-displays-breakpoints)
+    }
+  }
+}

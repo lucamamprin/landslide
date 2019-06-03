@@ -29,6 +29,23 @@ $ls-spacers: (
   5: $ls-base-spacer * 2,
 ) !default;
 
+// Margin utilities
+$sides: (
+  '': margin,
+  t: margin-top,
+  r: margin-right,
+  b: margin-bottom,
+  l: margin-left,
+) !default;
+
+// Displays utilities
+$ls-displays: (
+  none,
+  block,
+  inline-block,
+  flex,
+) !default;
+
 $ls-enable-responsive: true !default;
 $ls-breakpoints: (
   "thumb": "screen and (max-width: 499px)",
@@ -84,3 +101,9 @@ $ls-enable-grid-spacers: false !default;
 
 // Enable/disable responsive spacing utilities
 $ls-enable-grid-spacers-breakpoints: $ls-enable-responsive !default;
+
+// Enable/disable display utilities
+$ls-enable-displays: false !default;
+
+// Enable/disable responsive display utilities
+$ls-enable-displays-breakpoints: $ls-enable-responsive !default;

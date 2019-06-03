@@ -111,6 +111,22 @@ Sass map of sizes for the margin and padding utilities. Default:
   )
 ```
 
+**`$ls-enable-displays-breakpoints`**
+Enable responsive display utilities (example: element is a flex container above or below a certain media query). Default: `$ls-enable-responsive`
+*N.B. This setting has a minimal impact on the size of your compiled CSS.*
+
+**`$ls-spacers`**
+Sass map of display values that will generate the Displays utilities. Default:
+
+```
+  (
+    none,
+    block,
+    inline-block,
+    flex,
+  );
+```
+
 ## Grid layouts
 
 Apply as modifier classes to your base `grid` element. For example; `<div class="grid grid--center">`.
@@ -165,6 +181,9 @@ Enable RTL layout support. Default: `true`.
 
 **`$ls-enable-grid-spacers`**
 Enable margin and padding utilities. Default: `false`.
+
+**`$ls-enable-displays`**
+Enable displays utilities. Default: `false`.
 
 **`$ls-grids-sizes`**
 Sass map that will be used to loop the grids.

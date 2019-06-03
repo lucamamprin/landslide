@@ -44,31 +44,25 @@
     }
   }
 
-  // Automatic margin utilities
-  $sides: (
-    '': margin,
-    t: margin-top,
-    r: margin-right,
-    b: margin-bottom,
-    l: margin-left,
-  );
-
   @each $key, $prop in $sides {
-    .m#{$key}-auto {
+    .m#{$key}-auto,
+    %m#{$key}-auto {
       #{$prop}: auto !important;
 
       @include ls-mq-spacer($prop, auto);
     }
   }
 
-  .my-auto {
+  .my-auto,
+  %my-auto {
     margin-top: auto !important;
     margin-bottom: auto !important;
 
     @include ls-mq-spacer(margin-top, auto, margin-bottom);
   }
 
-  .mx-auto {
+  .mx-auto,
+  %mx-auto {
     margin-right: auto !important;
     margin-left: auto !important;
 
