@@ -9,7 +9,7 @@
       .#{$prop-alias}-#{$id} {
         #{$property}: $spacer !important;
 
-        @include ls-mq-spacer($property, $spacer)
+        @include ls-mq-property($property, $spacer);
       }
 
       // margin and padding on Y axis
@@ -17,14 +17,14 @@
       .#{$prop-alias}t-#{$id} {
         #{$property}-top: $spacer !important;
 
-        @include ls-mq-spacer($property, $spacer)
+        @include ls-mq-property($property, $spacer);
       }
 
       .#{$prop-alias}y-#{$id},
       .#{$prop-alias}b-#{$id} {
         #{$property}-bottom: $spacer !important;
 
-        @include ls-mq-spacer($property, $spacer)
+        @include ls-mq-property($property, $spacer);
       }
 
       // margin and padding on X axis
@@ -32,33 +32,36 @@
       .#{$prop-alias}r-#{$id} {
         #{$property}-right: $spacer !important;
 
-        @include ls-mq-spacer($property, $spacer)
+        @include ls-mq-property($property, $spacer);
       }
 
       .#{$prop-alias}x-#{$id},
       .#{$prop-alias}l-#{$id} {
         #{$property}-left: $spacer !important;
 
-        @include ls-mq-spacer($property, $spacer)
+        @include ls-mq-property($property, $spacer);
       }
     }
   }
 
+  // Loop automatic margins
   @each $key, $prop in $sides {
     .m#{$key}-auto,
     %m#{$key}-auto {
       #{$prop}: auto !important;
 
-      @include ls-mq-spacer($prop, auto);
+      @include ls-mq-property($prop, auto);
     }
   }
 
+  // Special margin cases.
   .my-auto,
   %my-auto {
     margin-top: auto !important;
     margin-bottom: auto !important;
 
-    @include ls-mq-spacer(margin-top, auto, margin-bottom);
+    @include ls-mq-property(margin-top, auto);
+    @include ls-mq-property(margin-bottom, auto);
   }
 
   .mx-auto,
@@ -66,6 +69,7 @@
     margin-right: auto !important;
     margin-left: auto !important;
 
-    @include ls-mq-spacer(margin-right, auto, margin-left);
+    @include ls-mq-property(margin-right, auto);
+    @include ls-mq-property(margin-left, auto);
   }
 }

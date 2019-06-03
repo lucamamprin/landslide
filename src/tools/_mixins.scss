@@ -120,24 +120,3 @@
     }
   }
 }
-
-@mixin ls-mq-spacer($property, $value, $opt-property: false) {
-  // check if responsive is enabled for margins
-  @if $ls-enable-grid-spacers-breakpoints {
-
-    // loop every breakpoint
-    @each $alias, $query in ($ls-breakpoints) {
-
-      // take the name of the parent class, add the breakpoint modifier and alias
-      &#{$ls-breakpoint-class-chain}#{$alias} {
-        @include ls-mq($alias) {
-          #{$property}: $value !important;
-
-          @if $opt-property {
-            #{$opt-property}: $value !important;
-          }
-        }
-      }
-    }
-  }
-}
