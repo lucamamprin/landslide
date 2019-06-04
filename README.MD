@@ -17,6 +17,7 @@
 - Added `rtl` support for better localization. (Yes, even the reverse grid works!)
 - Removed the `fraction` option from the code, to avoid issues in compilation with dart-sass and some other compilers.
 - Tired of manually setting margins and paddings? Now you can set `$ls-enable-grid-spacers` to `true` to compile tons of customizable utilities.
+- Want to add `display: none` or `block`, but only for specific elements and media queries? Set `$ls-enable-displays` to `true` and avoid code repetition by using the Displays pluggable classes.
 
 ## Installation
 1. Import `~/landslide/src/_landslide.scss` to your project via NPM
@@ -115,7 +116,7 @@ Sass map of sizes for the margin and padding utilities. Default:
 Enable responsive display utilities (example: element is a flex container above or below a certain media query). Default: `$ls-enable-responsive`
 *N.B. This setting has a minimal impact on the size of your compiled CSS.*
 
-**`$ls-spacers`**
+**`$ls-displays`**
 Sass map of display values that will generate the Displays utilities. Default:
 
 ```
