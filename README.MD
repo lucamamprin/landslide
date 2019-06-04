@@ -20,9 +20,10 @@
 - Want to add `display: none` or `block`, but only for specific elements and media queries? Set `$ls-enable-displays` to `true` and avoid code repetition by using the Displays pluggable classes.
 
 ## Installation
-1. Import `~/landslide/src/_landslide.scss` to your project via NPM
-2. Override settings to fit your requirements or use the defaults
-3. Compile!
+1. Type `yarn add lucamamprin/landslide` if you use yarn or `npm install lucamamprin/landslide --save` if you use NPM
+2. Import `~/landslide/src/_landslide.scss` in your SCSS or grab the compiled file;
+3. Override settings to fit your requirements or use the defaults;
+4. Compile and enjoy!
 
 ## Usage
 
