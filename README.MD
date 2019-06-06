@@ -244,7 +244,7 @@ IE (especially 11) just has too many bugs while trying to use Flexbox, and the s
 In short, it's just not worth it to write bloat. IE users won't see the same exact layout as Chrome or Firefox - **because the alternative is much worse**.
 
 ### Why no CSS Grid?
-CSS Grid is way too different from the more "traditional" approach to Avalanche/Landslide to be implemented in a sensible way.
+CSS Grid (two-ways layout) is way too different from the more "traditional" approach to Avalanche/Landslide (one-way layout) to be implemented in a sensible way. You can, however, implement a Grid by using the `@supports` directive and create your custom layout per section/component, while older browsers use a fallback.
 
 ## Questions
 
