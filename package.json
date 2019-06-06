@@ -1,6 +1,6 @@
 {
   "name": "landslide-css",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Superclean, powerful, responsive, Sass-based, BEM-syntax CSS grid system",
   "main": "_landslide.scss",
   "repository": {
