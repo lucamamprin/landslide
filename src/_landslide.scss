@@ -169,11 +169,11 @@
   .#{slCreateBlockClassName('auto')} {
     > .#{slCreateElementClassName()} {
       width: auto;
+      max-width: 100%;
 
       @if $ls-enable-flex {
         @supports (flex-basis: 0) {
           flex-basis: 0;
-          max-width: 100%;
         }
       }
     }
@@ -182,21 +182,36 @@
 
 @if $ls-enable-grid-rev {
   .#{slCreateBlockClassName('rev')} {
-    direction: rtl;
+    // Ltr direction styles.
+    // If dir is not specified or is empty, assume ltr directon.
+    @at-root
+    html[dir=ltr] &,
+    html[dir=''] &,
+    html:not([dir]) & {
+      direction: rtl;
 
-    @if $ls-enable-flex {
-      @supports (flex-direction: row-reverse) {
-        direction: inherit;
-        flex-direction: row-reverse;
+      > .#{slCreateElementClassName()} {
+        direction: ltr;
       }
-    }
-
-    > .#{slCreateElementClassName()} {
-      direction: ltr;
 
       @if $ls-enable-flex {
         @supports (flex-direction: row-reverse) {
           direction: inherit;
+          flex-direction: row-reverse;
+        }
+      }
+    }
+
+    // Rtl direction styles.
+    // NB: If automatic grid widths are used, the columns will be aligned to the left.
+    @at-root
+    html[dir=rtl] & {
+      direction: ltr;
+
+      @if $ls-enable-flex {
+        @supports (flex-direction: row-reverse) {
+          direction: rtl;
+          flex-direction: row-reverse;
         }
       }
     }
