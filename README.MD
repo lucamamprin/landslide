@@ -31,8 +31,8 @@ Example of a two column, responsive, centered grid. All grid layout classes and 
 
 ```
 <div class="grid grid--center">
-  <div class=".col-3-4 .col-1-2--thumb grid__cell"></div>
-  <div class=".col-1-4 .col-1-2--thumb grid__cell"></div>
+  <div class="col-3-4 col-1-2--thumb grid__cell"></div>
+  <div class="col-1-4 col-1-2--thumb grid__cell"></div>
 </div>
 ```
 
